@@ -104,7 +104,7 @@
                 
                 
                   <div class="form-check mt-2 mb-2">
-                    <input class="form-check-input" type="checkbox" id="is_admin" name="is_admin">
+                    <input class="form-check-input" type="checkbox" id="is_admin" name="is_admin" value="1">
                     <label class="form-check-label" for="is_admin">
                       Yetkili Kullanıcı
                     </label>
@@ -113,7 +113,7 @@
               <div class="col-lg-6">
                
                 <div class="form-check mt-2 mb-2">
-                  <input class="form-check-input" type="checkbox" id="is_active" name="is_active">
+                  <input class="form-check-input" type="checkbox" id="is_active" name="is_active" value="1">
                   <label class="form-check-label" for="is_active">
                     Kullanıcı Aktif
                   </label>
