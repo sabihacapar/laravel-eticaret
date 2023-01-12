@@ -33,6 +33,7 @@ class UserRequest extends FormRequest
 
     public function messages()
     {
+        
         return [
             "name.required" => "Bu alan zorunludur.",
             "name.min" => "Ad soyad alanı en az 3 karakterden oluşmalıdır.",

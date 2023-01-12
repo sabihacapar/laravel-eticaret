@@ -62,7 +62,7 @@
          
           <h2>Şifre Değiştirme Formu</h2>
           <div class="table-responsive">
-        <form action="{{ url("/users/>$user->user_id/change-password") }}" method="POST" novalidate>
+        <form action="{{ url("/users/$user->user_id/change-password") }}" method="POST" novalidate>
          @csrf {{-- inputta bir dosya oluşturup oradan değer alır.Bu değere göre de nereden geldiğini ayrıştırır --}}
           
           <div class="row">

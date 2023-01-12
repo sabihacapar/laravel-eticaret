@@ -135,6 +135,7 @@ class UserController extends Controller
     }
 
     public function changePassword(User $user,UserRequest $request){
+        
 
         $password =$request->get("password");
 
