@@ -17,8 +17,8 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset("css/dashboard.css") }}" rel="stylesheet">
-
   </head>
+
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Laravel E-Ticaret</a>
@@ -42,7 +42,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/users">
+                <a class="nav-link" href="{{ url("/users") }}">
                   <span data-feather="file"></span>
                   Kullanıcılar
                 </a>
@@ -56,88 +56,39 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Yönetim Paneli</h1>
-            
-          </div>
+         
 
 
-          <h2>Kullanıcılar</h2>
-          <div class="btn-tootbar mb-2 mb-md-0">
-            <div class="btn-group mb-2">
-              <a href="/users/create" class="btn btn-sm btn-outline-danger">YEni Ekle</a>
+         
+          <h2>Şifre Değiştirme Formu</h2>
+          <div class="table-responsive">
+        <form action="{{ url("/users/$user->user_id/change-password") }}" method="POST" novalidate>
+         @csrf {{-- inputta bir dosya oluşturup oradan değer alır.Bu değere göre de nereden geldiğini ayrıştırır --}}
+          
+          <div class="row">
+            <div class="col-lg-6">
+              
+                <label for="password" class="form-label">Şifre</label>
+                <input type="password" class="form-control" id="password" name="password"  placeholder="Şifre Giriniz">
+                @error('password')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+              
+            </div>
+            <div class="col-lg-6">
+             
+                <label for="password_confirmation" class="form-label">Şifre Tekrar</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Şifre Tekrar Giriniz">
+                @error('password')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
           </div>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>Sıra No</th>
-                  <th>Ad Soyad</th>
-                  <th>E-Posta</th>
-                  <th>Durum</th>
-                  <th>İşlemler</th>
-                </tr>
-              </thead>
-              <tbody>
-                @if(count($users)>0)
-                @foreach ($users as $user)
-                    
-                <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $user->name }}</td>
-                  <td>{{ $user->email }}</td>
-                  <td>
-                   
-                    @if($user->is_active == 1)
-                    <span class="badge bg-success">Aktif</span>
-                    @else
-                    <span class="badge bg-danger">Pasif</span>
-                    @endif
-
-
-                  </td>
-                  <td>
-                    <ul class="nav float-start">
-                      <li class="nav-item">
-                        <a href="{{url("/users/$user->user_id/edit") }}" class="nav-link text-black">
-                          <span data-feather="edit"></span>
-                          Güncelle
-                        </a>
-
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link list-item-delete text-black"
-                           href="{{url("/users/$user->user_id")}}">
-                            <span data-feather="trash-2"></span>
-                            Sil
-                        </a>
-                    </li>
-                      <li class="nav-item">
-                        <a href="{{url("/users/$user->user_id/change-password")}}" class="nav-link text-black">
-                          <span data-feather="lock"></span>
-                           Şifre Değiştir
-                        </a>
-
-                      </li>
-                      
-                    </ul>
-                  </td>
-                  
-                </tr>
-                @endforeach
-
-                @else
-                <tr>
-                    <td colspan="5">
-                        <p class="text-center">Herhangi bir kullanıcı bulunamadı</p>
-                    </td>
-                    
-                    
-                  </tr>
-                @endif
-              </tbody>
-            </table>
+           
+          <div class="row"><div class="col-12">
+            <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+          </div></div>
+        </form>
           </div>
         </main>
       </div>
@@ -186,11 +137,6 @@
           }
         }
       });
-
-
-
-      
     </script>
-    
   </body>
 </html>

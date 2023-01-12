@@ -25,14 +25,15 @@ class UserRequest extends FormRequest
     {
         $user_id = $this->request->get("user_id");
         return [
-            "name" => "required|min:3",
-            "email" => "required|email|unique:App\Models\User,email,$user_id",
+            "name" => "required|sometimes|min:3",
+            "email" => "required|sometimes|email|unique:App\Models\User,email,$user_id",
             "password" => "required|sometimes|string|min:5|confirmed"
         ];
     }
 
     public function messages()
     {
+        
         return [
             "name.required" => "Bu alan zorunludur.",
             "name.min" => "Ad soyad alanı en az 3 karakterden oluşmalıdır.",
