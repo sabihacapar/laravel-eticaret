@@ -65,21 +65,25 @@
          
           <h2>Yeni Kullanıcı Ekle</h2>
           <div class="table-responsive">
-        <form action="{{ url("/users") }}" method="POST">
+        <form action="{{ url("/users") }}" method="POST" novalidate>
          @csrf {{-- inputta bir dosya oluşturup oradan değer alır.Bu değere göre de nereden geldiğini ayrıştırır --}}
           <div class="row">
             <div class="col-lg-6">
               
                 <label for="name" class="form-label">Ad Soyad</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Ad Soyad Giriniz">
-              
-              
+                <input type="text" class="form-control" id="name" name="name" value="{{ old("name") }}" placeholder="Ad Soyad Giriniz">
+              @error('name')
+              <span class="text-danger">{{ $message }}</span>
+              @enderror
+                       
             </div>
             <div class="col-lg-6">
              
                 <label for="email" class="form-label">E-Posta</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email Giriniz">
-             
+                <input type="email" class="form-control" id="email" name="email" value="{{ old("email") }}" placeholder="Email Giriniz">
+                @error('email')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
               
             </div>
           </div>
@@ -87,16 +91,19 @@
             <div class="col-lg-6">
               
                 <label for="password" class="form-label">Şifre</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Şifre Giriniz">
-              
+                <input type="password" class="form-control" id="password" name="password"  placeholder="Şifre Giriniz">
+                @error('password')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
               
             </div>
             <div class="col-lg-6">
              
-                <label for="password2" class="form-label">Şifre Tekrar</label>
-                <input type="password" class="form-control" id="password2" name="password2" placeholder="Şifre Tekrar Giriniz">
-             
-              
+                <label for="password_confirmation" class="form-label">Şifre Tekrar</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Şifre Tekrar Giriniz">
+                @error('password')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
           </div>
             <div class="row">

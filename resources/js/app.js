@@ -1,4 +1,6 @@
+
 import './bootstrap';
-window.$ = require("jquery");
+window.$ = require("jquery")
+window.feather = require("feather-icons")
 window.feather = require("feather-icons");
-require('./custom');
+import './panel-list-item-delete';

@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset("css/dashboard.css") }}" rel="stylesheet">
+
   </head>
 
   <body>
@@ -107,12 +108,12 @@
 
                       </li>
                       <li class="nav-item">
-                        <a href="{{url("/users/$user->user_id") }}" class="nav-link list-item-delete text-black">
-                          <span data-feather="trash-2"></span>
-                          Sil
+                        <a class="nav-link list-item-delete text-black"
+                           href="{{url("/users/$user->user_id")}}">
+                            <span data-feather="trash-2"></span>
+                            Sil
                         </a>
-
-                      </li>
+                    </li>
                       <li class="nav-item">
                         <a href="/users" class="nav-link text-black">
                           <span data-feather="lock"></span>
@@ -186,6 +187,11 @@
           }
         }
       });
+
+
+
+      
     </script>
+    
   </body>
 </html>
