@@ -21,8 +21,8 @@ class Address extends Model
         "city",
         "district",
         "zipcode",
-        "address",
         "is_default",
+        "address",
 
     ];
 }

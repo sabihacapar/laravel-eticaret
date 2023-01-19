@@ -23,8 +23,8 @@ class AddressFactory extends Factory
             'user_id' => 2,
             'city' =>$this-> faker->city,
             'district' => $this->faker->city,
-            'zipcode' => $this->faker->randomDigitNotZero(), // password
-            'address' => $this->faker->address,
+            'zipcode' => $this->faker->randomDigitNotZero(),
+            'address' => $this->faker->address(),
             'is_default' =>$this->faker->boolean,
         ];
     }

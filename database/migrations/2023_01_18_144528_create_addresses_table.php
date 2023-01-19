@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string("city");
             $table->string("district");
             $table->string("zipcode");
-            $table->string("address");
             $table->boolean("is_default");
+
+            $table->string("address");
             $table->softDeletes();
 
             $table->timestamps();

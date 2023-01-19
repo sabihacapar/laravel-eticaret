@@ -60,6 +60,14 @@
             </a>
 
           </li>
+
+          <li class="nav-item">
+            <a href="{{url("/users/$user->user_id/addresses")}}" class="nav-link text-black">
+              <span data-feather="map-pin"></span>
+               Adreslerim
+            </a>
+
+          </li>
           
         </ul>
       </td>
