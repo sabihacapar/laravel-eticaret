@@ -16,53 +16,34 @@
   <input type="hidden" name="user_id" value="{{ $user->user_id }}" >
   <div class="row">
      <div class="col-lg-6">
+       <x-input label="Şehir" placeholder="Şehir Giriniz" field="city"/>
        
-         <label for="city" class="form-label">Şehir</label>
-         <input type="text" class="form-control" id="city" name="city" value="{{ old("city") }}" placeholder="Şehir Giriniz">
-       @error('city')
-       <span class="text-danger">{{ $message }}</span>
-       @enderror
                 
      </div>
      <div class="col-lg-6">
       
-         <label for="district" class="form-label">İlçe</label>
-         <input type="text" class="form-control" id="district" name="district" value="{{ old("district") }}" placeholder="İlçe Giriniz">
-         @error('district')
-         <span class="text-danger">{{ $message }}</span>
-         @enderror
+         <x-input label="İlçe" placeholder="İlçe Giriniz" field="district"/>
        
      </div>
    </div>
    <div class="row">
      <div class="col-lg-6">
        
-         <label for="zipcode" class="form-label">Posta Kodu</label>
-         <input type="text" class="form-control" id="zipcode" name="zipcode"  placeholder="Posta kodu Giriniz">
-         @error('zipcode')
-         <span class="text-danger">{{ $message }}</span>
-         @enderror
+         <x-input label="Posta Kodu" placeholder="Posta Kodu Giriniz" field="zipcode"/>
        
      </div>
      <div class="col-lg-6">
       
         
       <div class="form-check mt-2 mb-2">
-        <input class="form-check-input" type="checkbox" id="is_default" name="is_default" value="1">
-        <label class="form-checzk-label" for="is_default">
-         Varsayılan
-        </label>
+        <x-checkbox field="id_default" label="Varsayılan"/>
       </div>
      </div>
    </div>
      <div class="row">
        <div class="col-lg-12">
         <div class="mt-4">
-          <label for="address" class="form-label">Adres</label>
-          <textarea type="address" class="form-control" id="address" name="address" cols="20" rows="5"></textarea>
-          @error('address')
-          <span class="text-danger">{{ $message }}</span>
-          @enderror
+         <x-textarea label="Açık Adres" placeholder="Açık Adres Giriniz" field="address" />
         </div>
          
        </div>
