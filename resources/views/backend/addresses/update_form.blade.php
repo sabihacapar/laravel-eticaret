@@ -43,7 +43,7 @@
               <div class="col-lg-6">
                 
                 
-                <label for="zipcode" class="form-label">İlçe</label>
+                <label for="zipcode" class="form-label">Posta Kodu</label>
                 <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="İPosta Kodu Giriniz" value="{{ old("zipcode",$addr->district) }}">
                 @error('zipcode')
                 <span class="text-danger">{{ $message }}</span>
