@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AddressController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +29,7 @@ Route::post('/users/{user}/change-password', [UserController::class,'changePassw
 
 Route::resource('/users/{user}/addresses', AddressController::class);
 
+Route::resource('/categories', CategoryController::class);
 
+Route::resource('/products', ProductController::class);
 
