@@ -64,10 +64,7 @@ class AddressController extends Controller
      * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -105,10 +102,10 @@ class AddressController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address $address)
+    public function destroy(User $user,Address $address)
     {
         $address->delete();
         return response()->json(["message"=>"Done","id"=>$address->address_id]);
