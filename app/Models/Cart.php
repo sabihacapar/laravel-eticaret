@@ -8,13 +8,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cart extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+
     protected $primaryKey = "cart_id";
 
-    protected $fillable =[
+    protected $fillable = [
         'cart_id',
         'user_id',
-        'code'
-
+        'code',
+        'is_active'
     ];
+
+    public function details()
+    {
+        return $this->hasMany(CartDetails::class, "cart_id", "cart_id");
+    }
 }
